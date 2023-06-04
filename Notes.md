@@ -44,6 +44,19 @@ isPalindrome(x):
     return true
 ```
 ## Explanation
+### Code
+The code is written in C++ and defines a class `Solution` with a member function `isPalindrome` that checks if a given integer `x` is a palindrome number.
+
+1. The function `isPalindrome` takes an integer `x` as input and returns a boolean value indicating whether `x` is a palindrome number.
+2. The code first performs a check to determine if `x` is negative or if `x` is a non-zero number ending with a 0 (which would not be a palindrome). If either condition is true, it immediately returns `false`.
+3. If the above conditions are not met, the code proceeds to check if `x` is a palindrome number. It does this by converting `x` into a sequence of digits and comparing the digits from the beginning and end of the sequence.
+4. To convert `x` into a sequence of digits, the code initializes an empty vector called `digits`. It then enters a loop where it repeatedly extracts the last digit of `x` using the modulus operator `%` and adds it to the `digits` vector using the `insert` function to maintain the order.
+5. After the loop completes, the `digits` vector contains the digits of `x` in reverse order.
+6. The code then uses two iterators, `i` and `j`, to compare the digits from the beginning and end of the `digits` vector. The iterator `i` starts at the beginning of the vector, while the iterator `j` starts at the end of the vector.
+7. The code iterates over the elements of the `digits` vector using a loop. In each iteration, it compares the elements pointed to by `i` and `j`. If they are not equal, it means the number is not a palindrome, and the function returns `false`.
+8. If the loop completes without finding any mismatches, it means the number is a palindrome, and the function returns `true`.
+The code effectively checks if a given number `x` is a palindrome by converting it into a sequence of digits and comparing the digits from both ends.
+### Why `end() - 1`?
 1. The variable `end` represents the position after the last element in the `digits` vector. It is obtained using the `end()` function, which returns an iterator pointing to the position after the last element.
 2. To compare elements in the `digits` vector from both ends, the code sets up two iterators: `i` for iterating from the beginning of the vector, and `j` for iterating from the end.
 3. To start iterating from the end, we need to position `j` at the last element. Since `end` points to the position after the last element, subtracting 1 from `end` gives the index of the last element.
