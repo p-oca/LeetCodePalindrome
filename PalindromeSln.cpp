@@ -14,7 +14,6 @@ public:
                     digits.insert(digits.begin(), x % 10);
                     x /= 10;
                 }
-                //reverse(digits.begin(), digits.end());
                 vector<int>::iterator j = digits.end() - 1;
                 for (vector<int>::iterator i = digits.begin(); i != digits.end(); i++) {
                     if (*i != *j)
