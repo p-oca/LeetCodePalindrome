@@ -31,20 +31,22 @@ Both vectors and iterators are powerful tools that simplify working with collect
 # Pseudocode
 ```
 isPalindrome(x):
-    if x < 0 or (x != 0 and x % 10 == 0):
-        return false
-    else:
-        digits = []
-        if x == 0:
-            return true
-        else:
-            while x > 0:
-                digits.insert(0, x % 10)
-                x = x / 10
-            j = digits.length - 1
-            for i = 0 to digits.length - 1:
-                if digits[i] != digits[j]:
-                    return false
-                j = j - 1
-            return true
+    Convert x to a string and store it in a variable called 'str_x'
+    Set 'start' to 0
+    Set 'end' to the length of 'str_x' minus 1
+
+    while 'start' is less than or equal to 'end':
+        if 'str_x' at index 'start' is not equal to 'str_x' at index 'end':
+            return false
+        increment 'start' by 1
+        decrement 'end' by 1
+
+    return true
 ```
+## Explanation
+1. The variable `end` represents the position after the last element in the `digits` vector. It is obtained using the `end()` function, which returns an iterator pointing to the position after the last element.
+2. To compare elements in the `digits` vector from both ends, the code sets up two iterators: `i` for iterating from the beginning of the vector, and `j` for iterating from the end.
+3. To start iterating from the end, we need to position `j` at the last element. Since `end` points to the position after the last element, subtracting 1 from `end` gives the index of the last element.
+4. By setting `j = end - 1`, the iterator `j` is initialized to point to the last element in the `digits` vector, allowing us to compare elements in a symmetrical manner.
+
+By using `j` as an iterator initialized with the index of the last element, the code can effectively compare elements from both ends of the vector during the palindrome check.
